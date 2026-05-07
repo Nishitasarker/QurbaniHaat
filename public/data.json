@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "name": "Deshi Shahi Cow",
+    "type": "Cow",
+    "breed": "Shahiwal",
+    "price": 125000,
+    "weight": 320 ,
+    "age": 3 ,
+    "location": "Bogura",
+    "description": "Healthy Shahiwal cow suitable for Qurbani. Well fed with natural grass and organic grains in a village farm.",
+    "image": "/images/images-1.jfif",
+    "category": "Large Animal"
+  },
+  {
+    "id": 2,
+    "name": "Black Bengal Goat",
+    "type": "Goat",
+    "breed": "Black Bengal",
+    "price": 28000,
+    "weight": 35,
+    "age": 2,
+    "location": "Kushtia",
+    "description": "Premium quality Black Bengal goat. Known for its lean meat and active health. Raised in a domestic environment.",
+    "image": "/images/images-2...png",
+    "category": "Small Animal"
+  },
+  {
+    "id": 3,
+    "name": "Australian Cross Cow",
+    "type": "Cow",
+    "breed": "Cross Breed",
+    "price": 185000,
+    "weight": 450,
+    "age": 4,
+    "location": "Sirajganj",
+    "description": "Huge Australian cross breed cow. Perfect for those looking for maximum weight and a healthy structure.",
+    "image": "/images/image-3.png",
+    "category": "Large Animal"
+  },
+  {
+    "id": 4,
+    "name": "Jamunapari Goat",
+    "type": "Goat",
+    "breed": "Jamunapari",
+    "price": 45000,
+    "weight": 55,
+    "age": 3,
+    "location": "Rajshahi",
+    "description": "Tall and beautiful Jamunapari goat. High-quality breed with great physical appearance and health.",
+    "image": "/images/images-4.webp",
+    "category": "Small Animal"
+  },
+  {
+    "id": 5,
+    "name": "Brahman Bull",
+    "type": "Cow",
+    "breed": "Brahman",
+    "price": 320000,
+    "weight": 600,
+    "age": 5,
+    "location": "Dhaka",
+    "description": "Exotic Brahman bull, exceptionally strong and heavy. Managed by expert vets and fed with premium silage.",
+    "image": "/images/images-5...jfif",
+    "category": "Premium"
+  },
+  {
+    "id": 6,
+    "name": "Barbari Goat",
+    "type": "Goat",
+    "breed": "Barbari",
+    "price": 32000,
+    "weight": 40,
+    "age": 2,
+    "location": "Rangpur",
+    "description": "Distinctive Barbari breed goat. Very healthy, energetic, and perfect for a medium-budget Qurbani.",
+    "image": "/images/images-6.jfif",
+    "category": "Small Animal"
+  }
+]
