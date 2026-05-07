@@ -1,8 +1,17 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import AllAnimals from "../app/AllAnimals/page"
+import { usePathname } from "next/navigation";
 
 const Navbar = ()=>{
+  const pathname = usePathname();
+
+  const activeClass = (path) => 
+    pathname === path 
+      ? "text-green-500 font-bold "
+      : "text-black";
+
     return(
         <div className="navbar bg-base-100 shadow-sm px-10">
   <div className="navbar-start">
@@ -12,10 +21,16 @@ const Navbar = ()=>{
       </div>
       <ul tabIndex="-1"
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2  shadow">
-        <li className="font-semibold text-xl"><a>Home</a></li>
         <li className="font-semibold text-xl">
-          <a>All Animals</a>
-          
+          <Link rel="stylesheet" href="/" className={activeClass("/")}>Home</Link>
+          </li>
+
+        <li className="font-semibold text-xl">
+          <Link rel="stylesheet" href="/AllAnimals" className={activeClass("/AllAnimals")}>All Animals</Link>  
+        </li>
+
+        <li className="font-semibold text-xl">
+          <Link rel="stylesheet" href="/Profile" className={activeClass("/Profile")}>Profile</Link> 
         </li>
            </ul>
     </div>
@@ -35,10 +50,17 @@ const Navbar = ()=>{
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-       <li className="font-semibold text-lg"><a>Home</a></li>
+       <li className="font-semibold text-lg">
+         <Link rel="stylesheet" href="/" className={activeClass("/")}>Home</Link> 
+       </li>
+
+
         <li className="font-semibold text-lg">
-          <a>All Animals</a>
-          
+          <Link rel="stylesheet" href="/AllAnimals" className={activeClass("/AllAnimals")}>All Animals</Link>  
+        </li>
+
+        <li className="font-semibold text-xl">
+          <Link rel="stylesheet" href="/Profile" className={activeClass("/Profile")}>Profile</Link> 
         </li>
        
     </ul>
