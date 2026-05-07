@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 
 const Navbar = ()=>{
   const pathname = usePathname();
+  const isLoggedOut = pathname === "/LogOutPage";
 
   const activeClass = (path) => 
     pathname === path 
@@ -66,25 +67,33 @@ const Navbar = ()=>{
     </ul>
   </div>
 
-  <div className=" navbar-end flex gap-1">
-    <div className="avatar">
-  <div className="w-24 rounded-full">
-     <Image
-          src="/female.png"  
-          className="p-1 rounded-full "      
-          alt="QurbaniHaat Logo"
-          width={60}               
-          height={60}             
-          priority                 
-        />
+ <div className="navbar-end flex gap-2">
+        {isLoggedOut ? (
+          /* লগআউট পেইজে থাকলে এই বাটনগুলো দেখাবে */
+          <>
+            <Link href="/Login">
+              <button className="btn btn-outline btn-success">Login</button>
+            </Link>
+            <Link href="/Register">
+              <button className="btn bg-green-500 text-white border-none">Register</button>
+            </Link>
+          </>
+        ) : (
+          /* অন্য সব পেইজে প্রোফাইল পিকচার এবং লগআউট বাটন দেখাবে */
+          <>
+            <div className="avatar">
+              <div className="w-12 rounded-full ring ring-green-500 ring-offset-base-100 ring-offset-2">
+                <Image src="/female.png" alt="User" width={60} height={60} />
+              </div>
+            </div>
+            <Link href="/LogOutPage">
+              <button className="btn bg-red-500 text-white border-none">LogOut</button>
+            </Link>
+          </>
+        )}
+      </div>
     </div>
-</div>
-  <div >
-    <a className="btn bg-red-500 text-white ">LogOut</a>
-  </div>
-</div>
-</div>
-    )
-}
+  );
+};
 
 export default Navbar;

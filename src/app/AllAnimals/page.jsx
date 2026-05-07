@@ -1,5 +1,6 @@
 "use client";
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 
@@ -37,8 +38,11 @@ const FeatureData = () => {
               <p className='text-gray-700'>Age: {animal.age}</p>
               <p className='text-gray-700'>Price: ${animal.price}</p>
               <div className="card-actions ">
-                <button className="btn btn-block text-white bg-green-400 rounded-full">View Details</button>
-              </div>
+              <Link href={`/AllAnimals/${animal.id}`}>
+                <button className="btn btn-block text-white bg-green-400 rounded-full w-full">View Details</button>
+
+              </Link>        
+               </div>
             </div>
           </div>
         ))}
