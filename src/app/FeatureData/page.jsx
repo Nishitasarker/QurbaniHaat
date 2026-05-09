@@ -11,6 +11,7 @@ const FeatureData = () => {
     fetch("/data.json")
       .then((res) => res.json())
       .then((data) => {
+        
              setAnimals(data.slice(0, 4));
       });
   }, []);

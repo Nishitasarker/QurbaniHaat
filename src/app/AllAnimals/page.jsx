@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 
-const FeatureData = () => {
+const AllAnimals = () => {
     const [animals, setAnimals] = useState([]);
 
   useEffect(() => {
@@ -12,7 +12,9 @@ const FeatureData = () => {
     fetch("/data.json")
       .then((res) => res.json())
       .then((data) => {
-             setAnimals(data);
+        const sortedData = [...data].sort((a, b) => a.price - b.price);
+        setAnimals(sortedData);
+             
       });
   }, []);
 
@@ -51,4 +53,4 @@ const FeatureData = () => {
   );
 };
 
-export default FeatureData;
+export default AllAnimals;
