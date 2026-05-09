@@ -3,7 +3,7 @@ import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { MongoClient } from "mongodb";
 
 const client = new MongoClient(process.env.MONGODB_URI);
-const db = client.db(); // এখানে ব্র্যাকেট খালি রাখুন, সে URI থেকে নাম নিয়ে নিবে
+const db = client.db(); 
 
 export const auth = betterAuth({
     database: mongodbAdapter(db), 
@@ -11,6 +11,12 @@ export const auth = betterAuth({
         enabled: true,
         autoSignIn: true
     },
+    socialProviders: {
+        google: { 
+            clientId: process.env.GOOGLE_CLIENT_ID, 
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET, 
+        }, 
+    }, // <--- এখানে google এর অবজেক্ট এবং socialProviders ক্লোজ করতে হবে
     secret: process.env.BETTER_AUTH_SECRET,
-    baseURL: process.env.BETTER_AUTH_URL
+    baseURL: process.env.BETTER_AUTH_URL,
 });

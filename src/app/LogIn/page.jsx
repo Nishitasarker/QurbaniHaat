@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Link from "next/link";
 import { Check } from "@gravity-ui/icons";
 import { useRouter } from "next/navigation";
 import { toast, ToastContainer } from 'react-toastify'; 
@@ -96,13 +97,19 @@ const LogInPage = () => {
                   <FieldError />
                 </TextField>
         
-                <div className="flex gap-2">
+                <div >
                   <Button type="submit">
                     <Check />
                    LogIn
                   </Button>
                   
                 </div>
+
+         <div>
+        <p>Don't have an account?{" "}
+     <Link href="/RegisterPage" className="text-red-500  cursor-pointer">
+          Registration here</Link> </p>
+          </div>
               </Form>
             </Card>
     );

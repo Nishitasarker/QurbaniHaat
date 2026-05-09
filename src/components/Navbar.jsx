@@ -3,10 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 import AllAnimals from "../app/AllAnimals/page"
 import { usePathname } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
+import { userAc } from "better-auth/plugins/admin/access";
 
 const Navbar = ()=>{
+  const {data: session} =authClient.useSession();
+
   const pathname = usePathname();
   const isLoggedOut = pathname === "/LogOut";
+  const user = session?.user;
+  const showAuthButtons = !session;
 
   const activeClass = (path) => 
     pathname === path 
@@ -80,9 +86,10 @@ const Navbar = ()=>{
           </>
         ) : (
           <div className="flex items-center gap-3">
+             <h2 className="hidden md:block font-medium">{user?.name}</h2>
             <div className="avatar">
               <div className="w-10 rounded-full ring ring-green-500 ring-offset-base-100 ring-offset-2">
-                <Image src="/female.png" alt="User" width={40} height={40} />
+                <Image src={user?.image || "/female.png"} alt="User" width={40} height={40} />
               </div>
             </div>
             
