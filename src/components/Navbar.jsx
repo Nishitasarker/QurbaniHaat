@@ -37,7 +37,7 @@ const Navbar = ()=>{
         </li>
 
         <li className="font-semibold text-xl">
-          <Link rel="stylesheet" href="/Profile" className={activeClass("/Profile")}>Profile</Link> 
+          <Link rel="stylesheet" href="/Profile" className={activeClass("/ProfilePage")}>Profile</Link> 
         </li>
            </ul>
     </div>
@@ -67,7 +67,7 @@ const Navbar = ()=>{
         </li>
 
         <li className="font-semibold text-xl">
-          <Link rel="stylesheet" href="/Profile" className={activeClass("/Profile")}>Profile</Link> 
+          <Link rel="stylesheet" href="/ProfilePage" className={activeClass("/ProfilePage")}>Profile</Link> 
         </li>
        
     </ul>
@@ -75,7 +75,7 @@ const Navbar = ()=>{
 
  <div className="navbar-end flex gap-2">
         {isLoggedOut ? (
-          /* লগআউট পেইজে থাকলে এই বাটনগুলো দেখাবে */
+         
           <>
             <Link href="/LogIn">
               <button className="btn btn-outline btn-success">Login</button>

@@ -8,6 +8,10 @@ const nextConfig = {
         pathname: '/**',
       },
       {
+        protocol:"https",
+         hostname: '**',
+      },
+      {
         protocol: 'https',
         hostname: 'img.freepik.com', 
         pathname: '/**',

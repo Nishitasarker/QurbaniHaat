@@ -4,7 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { Check } from "@gravity-ui/icons";
 import { authClient } from "../../lib/auth-client";
-import {FaGoogle} from "react-icons/fa";
+
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   Button,
   Card,
@@ -20,7 +22,8 @@ import {
 export default function RegisterPage() {
  const handleGoogleLogin= async ()=>{
    const res=await authClient.signIn.social({
-    provider:"google"
+    provider:"google",
+    callbackURL: "/"
    });
    console.log(res,"res");
  }
@@ -38,22 +41,21 @@ export default function RegisterPage() {
       email,
       password,
     },{
-      onSuccess:()=>{
-      router.push('/LogIn')
+      onSuccess: () => {
+        toast.success("Registration successful! Redirecting...");
+        setTimeout(() => {
+            router.push('/LogIn'); // সামান্য দেরি করে পাঠানো যেন ইউজার টোস্ট দেখে
+        }, 2000);
+      },
+      onError: (ctx) => {
+        // এখানে ctx ব্যবহার করতে হবে
+        toast.error(ctx.error.message || "Registration failed!");
       }
-    })
- console.log({data,error});
- if(error){
-  alert(error.message)
- }
-
- if(data){
-  alert("Registration successful")
- }
+    });
   };
-
   return (
     <Card className="bg-gray-50 shadow-xl mx-auto w-125 py-10 mt-5 mb-5">
+      <ToastContainer position="top-right" autoClose={3000} />
       <h1 className="text-center text-2xl font-bold">Registration</h1>
 
       <Form className="flex w-96 mx-auto flex-col gap-4" onSubmit={onSubmit}>
@@ -137,8 +139,9 @@ export default function RegisterPage() {
 </div>
         <div>
          
-          <button className="btn btn-block bg-white text-black
-          border-2 border-green-400 onClick={handleGoogleLogin}">
+          <button
+          type="button" className="btn btn-block bg-white text-black
+          border-2 border-green-400 " onClick={handleGoogleLogin}>
   <svg aria-label="Google logo" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g>
     <path d="m0 0H512V512H0" fill="#fff"></path>
     <path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"></path><path fill="#4285f4" d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"></path><path fill="#fbbc02" d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"></path><path fill="#ea4335" d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"></path></g></svg>
