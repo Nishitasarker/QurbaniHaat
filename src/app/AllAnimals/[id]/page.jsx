@@ -2,7 +2,8 @@ import React from 'react';
 import fs from 'fs';
 import path from 'path';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Toaster } from 'react-hot-toast';
+import BookingForm from '@/components/BookingForm/BookingForm';
 
 const DetailsPage = async ({ params }) => {
     const { id } = await params;
@@ -18,14 +19,16 @@ const DetailsPage = async ({ params }) => {
    
     if (!animal) {
         return <div className="text-center py-20 text-2xl font-bold">Animal Not Found!</div>;
-    }  return (
-        <div className='grid grid-cols-1 sm:grid-cols-2 bg-lime-100'>
+    } 
+     return (
+      
+        <div className='grid grid-cols-1 sm:grid-cols-2 bg-lime-100 px-30'>
 
-            <div className=" mx-auto p-6 px-10 bg-lime-100 w-full">
+            <div className=" mx-auto py-6  bg-lime-100 w-full">
                         <h1 className="text-4xl font-bold text-center mb-4">Animal Details</h1>
-                     <div className="px-10">
+                     <div className="px-5">
               
-                      <div key={animal.id} className="card bg-base-100 shadow-xl border-gray-400 w-full">
+                      <div key={animal.id} className="card bg-gray-50 shadow-xl border-gray-400 w-full">
                         <figure className='relative w-full aspect-square'>
                           <Image
                             src={animal.image}
@@ -62,11 +65,15 @@ const DetailsPage = async ({ params }) => {
                   </div>
                 </div>
 
-                <div>
-
+                <div className="mx-auto p-6 pb-10 pt-40 bg-lime-100 w-full ">
+                  <Toaster position="top-center" reverseOrder={false} />
+                      <BookingForm isLoggedIn={true} /> 
                 </div>
             
         </div>
+        
+    
+
     );
 };
 

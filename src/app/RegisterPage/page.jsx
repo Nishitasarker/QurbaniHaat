@@ -53,19 +53,19 @@ export default function RegisterPage() {
   };
 
   return (
-    <Card className="border mx-auto w-125 py-10 mt-5 mb-5">
+    <Card className="bg-gray-50 shadow-xl mx-auto w-125 py-10 mt-5 mb-5">
       <h1 className="text-center text-2xl font-bold">Registration</h1>
 
       <Form className="flex w-96 mx-auto flex-col gap-4" onSubmit={onSubmit}>
         <TextField isRequired name="name" type="text">
           <Label>Name</Label>
-          <Input placeholder="Enter your name" />
+          <Input placeholder="Enter your name" className="w-full"/>
           <FieldError />
         </TextField>
 
         <TextField isRequired name="image" type="text">
           <Label>Photo URL</Label>
-          <Input placeholder="Photo URL" />
+          <Input placeholder="Photo URL" className="w-full min-w-full" />
           <FieldError />
         </TextField>
 
@@ -73,6 +73,8 @@ export default function RegisterPage() {
           isRequired
           name="email"
           type="email"
+          autoComplete="off"
+          className="w-full"
           validate={(value) => {
             if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
               return "Please enter a valid email address";
@@ -82,7 +84,7 @@ export default function RegisterPage() {
           }}
         >
           <Label>Email</Label>
-          <Input placeholder="john@example.com" />
+          <Input placeholder="john@example.com"  autoComplete="off" className="w-full min-w-full"/>
           <FieldError />
         </TextField>
 
@@ -91,6 +93,7 @@ export default function RegisterPage() {
           minLength={8}
           name="password"
           type="password"
+          autoComplete="new-password"
           validate={(value) => {
             if (value.length < 8) {
               return "Password must be at least 8 characters";
@@ -106,7 +109,8 @@ export default function RegisterPage() {
           }}
         >
           <Label>Password</Label>
-          <Input placeholder="Enter your password" />
+          <Input placeholder="Enter your password" autoComplete="new-password"
+          className="w-full min-w-full"/>
           <Description>
             Must be at least 8 characters with 1 uppercase and 1 number
           </Description>
