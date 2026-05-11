@@ -29,15 +29,15 @@ const Navbar = ()=>{
       <ul tabIndex="-1"
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2  shadow">
         <li className="font-semibold text-xl">
-          <Link rel="stylesheet" href="/" className={activeClass("/")}>Home</Link>
+          <Link  href="/" className={activeClass("/")}>Home</Link>
           </li>
 
         <li className="font-semibold text-xl">
-          <Link rel="stylesheet" href="/AllAnimals" className={activeClass("/AllAnimals")}>All Animals</Link>  
+          <Link  href="/AllAnimals" className={activeClass("/AllAnimals")}>All Animals</Link>  
         </li>
 
         <li className="font-semibold text-xl">
-          <Link rel="stylesheet" href="/Profile" className={activeClass("/ProfilePage")}>Profile</Link> 
+          <Link  href="/ProfilePage" className={activeClass("/ProfilePage")}>Profile</Link> 
         </li>
            </ul>
     </div>
@@ -58,16 +58,16 @@ const Navbar = ()=>{
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
        <li className="font-semibold text-lg">
-         <Link rel="stylesheet" href="/" className={activeClass("/")}>Home</Link> 
+         <Link  href="/" className={activeClass("/")}>Home</Link> 
        </li>
 
 
         <li className="font-semibold text-lg">
-          <Link rel="stylesheet" href="/AllAnimals" className={activeClass("/AllAnimals")}>All Animals</Link>  
+          <Link  href="/AllAnimals" className={activeClass("/AllAnimals")}>All Animals</Link>  
         </li>
 
         <li className="font-semibold text-xl">
-          <Link rel="stylesheet" href="/ProfilePage" className={activeClass("/ProfilePage")}>Profile</Link> 
+          <Link  href="/ProfilePage" className={activeClass("/ProfilePage")}>Profile</Link> 
         </li>
        
     </ul>
