@@ -1,13 +1,11 @@
 "use client";
 import React from 'react';
 import Link from "next/link";
-import { Check } from "@gravity-ui/icons";
 import { useRouter } from "next/navigation";
 import { toast, ToastContainer } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css';
 
 import {
-  Button,
   Card,
   Description,
   FieldError,

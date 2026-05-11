@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname,useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
-import { userAc } from "better-auth/plugins/admin/access";
+
 
 const Navbar = ()=>{
   const {data: session} =authClient.useSession();
@@ -67,7 +67,7 @@ const Navbar = ()=>{
           priority                 
         />
         <p className="font-semibold text-2xl ">Qurbani<span className="text-green-500">Haat</span></p>
-          </div>
+         </div>
    
   </div>
   <div className="navbar-center hidden lg:flex">
@@ -97,7 +97,6 @@ const Navbar = ()=>{
         </button>
       </Link>
 
-      {/* Register Link with active check */}
       <Link href="/RegisterPage" className={activeClass("/RegisterPage")}>
         <button className={`btn btn-outline  ${pathname === "/RegisterPage" ? "btn-success bg-green-50" : "btn-success"}`}>
           Register

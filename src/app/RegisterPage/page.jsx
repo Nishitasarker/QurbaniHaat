@@ -2,13 +2,11 @@
 import { useRouter } from "next/navigation"; 
 import { useState } from "react";
 import Link from "next/link";
-import { Check } from "@gravity-ui/icons";
 import { authClient } from "../../lib/auth-client";
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {
-  Button,
   Card,
   Description,
   FieldError,
@@ -45,7 +43,7 @@ export default function RegisterPage() {
       onSuccess: async () => { 
                 await authClient.signOut();
         toast.success("Registration successful! Now please Log In.");
-        
+
         setTimeout(() => {
             router.push('/LogIn'); 
         }, 2000);

@@ -8,7 +8,7 @@ import {
   TextField, 
   Label, 
   FieldError 
-} from "@heroui/react"; // নিশ্চিত করুন এই ইমপোর্টগুলো আছে
+} from "@heroui/react";
 import { toast, ToastContainer } from "react-toastify";
 import { useRouter } from "next/navigation";
 import 'react-toastify/dist/ReactToastify.css';
@@ -59,7 +59,7 @@ export default function UpdateProfile() {
         
         <div className="flex flex-col gap-5">
           
-          {/* Name Field - value এবং onChange যোগ করা হয়েছে */}
+       
           <TextField isRequired name="name" type="text">
             <Label>Name</Label>
             <Input 
@@ -71,7 +71,7 @@ export default function UpdateProfile() {
             <FieldError />
           </TextField>
           
-          {/* Photo URL Field - value এবং onChange যোগ করা হয়েছে */}
+     
           <TextField isRequired name="image" type="text">
             <Label>Photo URL</Label>
             <Input 
