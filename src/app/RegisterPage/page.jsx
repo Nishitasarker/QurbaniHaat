@@ -40,15 +40,18 @@ export default function RegisterPage() {
       image,
       email,
       password,
+      autoSignIn: false,
     },{
-      onSuccess: () => {
-        toast.success("Registration successful! Redirecting...");
+      onSuccess: async () => { 
+                await authClient.signOut();
+        toast.success("Registration successful! Now please Log In.");
+        
         setTimeout(() => {
-            router.push('/LogIn'); // সামান্য দেরি করে পাঠানো যেন ইউজার টোস্ট দেখে
+            router.push('/LogIn'); 
         }, 2000);
       },
       onError: (ctx) => {
-        // এখানে ctx ব্যবহার করতে হবে
+        
         toast.error(ctx.error.message || "Registration failed!");
       }
     });

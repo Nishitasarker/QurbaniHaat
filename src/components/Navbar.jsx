@@ -1,8 +1,8 @@
 "use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import AllAnimals from "../app/AllAnimals/page"
-import { usePathname } from "next/navigation";
+import { usePathname,useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import { userAc } from "better-auth/plugins/admin/access";
 
@@ -10,14 +10,29 @@ const Navbar = ()=>{
   const {data: session} =authClient.useSession();
 
   const pathname = usePathname();
-  const isLoggedOut = pathname === "/LogOut";
-  const user = session?.user;
+  const router = useRouter();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true); 
+  }, []);
+ const user = session?.user;
   const showAuthButtons = !session;
 
   const activeClass = (path) => 
     pathname === path 
       ? "text-green-500 font-bold "
       : "text-black";
+
+      const handleLogOut = async () => {
+    await authClient.signOut();
+    localStorage.removeItem("user");
+    router.push("/"); 
+  };
+
+  if (!mounted) {
+    return <div className="navbar bg-base-100 shadow-sm px-10 h-16"></div>; 
+  }
 
     return(
         <div className="navbar bg-base-100 shadow-sm px-10">
@@ -74,19 +89,25 @@ const Navbar = ()=>{
   </div>
 
  <div className="navbar-end flex gap-2">
-        {isLoggedOut ? (
-         
-          <>
-            <Link href="/LogIn">
-              <button className="btn btn-outline btn-success">Login</button>
-            </Link>
-            <Link href="/RegisterPage">
-              <button className="btn bg-green-500 text-white border-none">Register</button>
-            </Link>
-          </>
+        {!session ? (
+    <div className="flex items-center gap-3">
+      <Link href="/LogIn" className={activeClass("/LogIn")}>
+        <button className={`btn btn-outline ${pathname === "/LogIn" ? "btn-success bg-green-50" : "btn-success"}`}>
+          Login
+        </button>
+      </Link>
+
+      {/* Register Link with active check */}
+      <Link href="/RegisterPage" className={activeClass("/RegisterPage")}>
+        <button className={`btn btn-outline  ${pathname === "/RegisterPage" ? "btn-success bg-green-50" : "btn-success"}`}>
+          Register
+        </button>
+      </Link>
+    </div>
         ) : (
+         
           <div className="flex items-center gap-3">
-             <h2 className="hidden md:block font-medium">{user?.name}</h2>
+            <h2 className="hidden md:block font-medium">{user?.name}</h2>
             <div className="avatar">
               <div className="w-10 rounded-full ring ring-green-500 ring-offset-base-100 ring-offset-2">
                 <Image src={user?.image || "/female.png"} alt="User" width={40} height={40} />
@@ -95,10 +116,7 @@ const Navbar = ()=>{
             
             <button
               className="btn btn-sm lg:btn-md bg-red-500 hover:bg-red-600 text-white border-none"
-              onClick={() => {
-                localStorage.removeItem("user");
-                window.location.href = "/LogOut";
-              }}
+              onClick={handleLogOut}
             >
               LogOut
             </button>

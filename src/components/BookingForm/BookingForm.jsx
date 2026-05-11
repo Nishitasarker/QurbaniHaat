@@ -27,25 +27,30 @@ const BookingForm = ({ isLoggedIn }) => {
     return (
         <div className="card  shadow-xl p-6 bg-gray-50 ">
             <h3 className="text-2xl font-bold mb-5">Booking form</h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3">
+                <p className='font-semibold'>Name</p>
                 <input 
                     type="text" required placeholder="Enter your name"
                     className="input input-bordered w-full"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                 />
+                 <p className='font-semibold'>Email</p>
                 <input 
                     type="email" required placeholder="john@gmail.com"
                     className="input input-bordered w-full"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                 />
+                 <p className='font-semibold'>Phone Number</p>
                 <input 
                     type="text" required placeholder="Enter your phone number"
                     className="input input-bordered w-full"
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
                 />
+
+                 <p className='font-semibold'>Address</p>
                 <textarea 
                     required placeholder="Enter your address"
                     className="textarea textarea-bordered w-full h-24"

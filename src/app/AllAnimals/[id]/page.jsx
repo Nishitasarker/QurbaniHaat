@@ -22,7 +22,7 @@ const DetailsPage = async ({ params }) => {
     } 
      return (
       
-        <div className='grid grid-cols-1 sm:grid-cols-2 bg-lime-100 px-30'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 bg-lime-100 px-5 sm:px-30'>
 
             <div className=" mx-auto py-6  bg-lime-100 w-full">
                         <h1 className="text-4xl font-bold text-center mb-4">Animal Details</h1>
@@ -65,7 +65,7 @@ const DetailsPage = async ({ params }) => {
                   </div>
                 </div>
 
-                <div className="mx-auto p-6 pb-10 pt-40 bg-lime-100 w-full ">
+                <div className="mx-auto p-6 pb-10 pt-20 bg-lime-100 w-full ">
                   <Toaster position="top-center" reverseOrder={false} />
                       <BookingForm isLoggedIn={true} /> 
                 </div>
