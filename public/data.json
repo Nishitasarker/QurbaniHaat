@@ -9,7 +9,7 @@
     "age": 3 ,
     "location": "Bogura",
     "description": "Healthy Shahiwal cow suitable for Qurbani. Well fed with natural grass and organic grains in a village farm.",
-    "image": "/images/images-1.jfif",
+    "image": "/images/images-1.png",
     "category": "Large Animal"
   },
   {
@@ -61,7 +61,7 @@
     "age": 5,
     "location": "Dhaka",
     "description": "Exotic Brahman bull, exceptionally strong and heavy. Managed by expert vets and fed with premium silage.",
-    "image": "/images/images-5...jfif",
+    "image": "/images/image.jpg",
     "category": "Premium"
   },
   {
@@ -74,7 +74,7 @@
     "age": 2,
     "location": "Rangpur",
     "description": "Distinctive Barbari breed goat. Very healthy, energetic, and perfect for a medium-budget Qurbani.",
-    "image": "/images/images-6.jfif",
+    "image": "/images/Barbari Goat.png",
     "category": "Small Animal"
   }
 ]
